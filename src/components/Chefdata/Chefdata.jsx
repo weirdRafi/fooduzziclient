@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Chefdata = (props) => {
     const { id, name, picture, experience, recipes, likes } = props.data;
-    console.log(name);
+    // console.log(name);
     return (
         <div className="card card-compact w-72 bg-base-100 shadow-xl">
             <figure><img className='h-56 w-full' src={picture} alt="name" /></figure>
@@ -14,7 +14,7 @@ const Chefdata = (props) => {
                 <h2>Number of Recipes: {recipes}</h2>
 
                 <div className="card-actions justify-start mt-3">
-                    <Link className="btn btn-sm btn-success">View Recipes</Link>
+                    <Link to={`/${id}`} className="btn btn-sm btn-success">View Recipes</Link>
                 </div>
             </div>
         </div>
