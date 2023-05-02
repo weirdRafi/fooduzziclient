@@ -30,7 +30,7 @@ const Details = () => {
                 </div>
             </div>
 
-            <div className='flex'>
+            <div className='lg:flex'>
                 {
                     chefRecipe.map(r => <Recipe r={r}></Recipe>)
                 }
