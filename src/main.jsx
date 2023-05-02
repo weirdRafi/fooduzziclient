@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import App from './App.jsx'
 import './index.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,6 +16,7 @@ import Register from './components/Register/Register.jsx';
 import Home from './components/Home/Home.jsx';
 import Details from './components/Details/Details.jsx';
 import Authprovider from './providers/Authprovider.jsx';
+import PrivateRoutes from './PrivateRoute/PrivateRoutes.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/:id',
-        element: <Details></Details>,
+        element: <PrivateRoutes><Details></Details></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:3000/allData/${params.id}`)
       },
       {
@@ -49,6 +52,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Authprovider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </Authprovider>
   </React.StrictMode>,
 )
