@@ -9,7 +9,7 @@ const Details = () => {
     const data = useLoaderData()
 
     useEffect(() => {
-        fetch('http://localhost:3000/allRecipes')
+        fetch('https://chef-recipe-hunter-server-weirdrafi.vercel.app/allRecipes')
             .then(res => res.json())
             .then(data => setChefRecipe(data))
     }, [])

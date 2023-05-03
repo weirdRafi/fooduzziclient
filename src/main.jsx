@@ -27,12 +27,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:3000/allData')
+        loader: () => fetch('https://chef-recipe-hunter-server-weirdrafi.vercel.app/allData')
       },
       {
         path: '/:id',
         element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:3000/allData/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-weirdrafi.vercel.app/allData/${params.id}`)
       },
       {
         path: 'blog',
