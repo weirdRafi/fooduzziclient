@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Recipe = (props) => {
+    const [isFavorite, setIsFavorite] = useState(false);
     console.log(props);
     const { food_name, cooking_method, country, image, ingredients, rating } = props.r;
 
     const notify =()=>{
         toast("Added to favorite!");
+        setIsFavorite(true);
     }
     return (
         <div>
@@ -22,7 +24,7 @@ const Recipe = (props) => {
 
                     <h2> <strong>Ingredients:</strong> <br /> {ingredients[0]} <br /> {ingredients[1]} <br />{ingredients[2]} <br />{ingredients[3]} <br />{ingredients[4]} <br /></h2>
 
-                    <button onClick={notify} className='btn btn-success'>Add To Favorite</button>
+                    <button disabled={isFavorite} onClick={notify} className='btn btn-success'>Add To Favorite</button>
                 </div>
             </div>
         </div>
