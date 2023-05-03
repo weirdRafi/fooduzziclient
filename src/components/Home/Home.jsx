@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
             <section>
-                <div className='lg:flex mt-10 items-center'>
+                <div className='lg:flex mt-10 items-center gap-5'>
                     <div><img src="https://i.ibb.co/XLYQcpD/chef-with-thumb-up-white-background.jpg" alt="chef-with-thumb-up-white-background" border="0" /></div>
                     <div className='text-start'>
                         <h3 className='text-green-400 text-4xl font-bold'>The Master</h3> <br />
@@ -30,7 +30,7 @@ const Home = () => {
             </section> {/* <!-- Chef section end --> */}
 
             <section className='mt-10 mb-10 shadow-xl'>
-                <h2 className='text-green-400 text-3xl'>Carousel Section</h2>
+                <h2 className='text-green-400 text-3xl mb-3'>Carousel Section</h2>
 
                 <div className="carousel h-96 w-full">
                     <div id="item1" className="carousel-item w-full">
