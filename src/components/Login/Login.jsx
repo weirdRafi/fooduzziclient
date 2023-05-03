@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { AuthContext } from '../../providers/Authprovider';
@@ -11,6 +11,10 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
     const auth = getAuth(app);
+    const location = useLocation()
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/alldata/0'
     
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, googleProvider)
@@ -56,6 +60,7 @@ const Login = () => {
             loginUser(email, password)
                 .then(result => {
                     const loggedUser = result.user;
+                    navigate(from, {replace: true})
                     setError('')
                     form.reset()
                 })
