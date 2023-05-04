@@ -6,6 +6,7 @@ import { AuthContext } from '../../providers/Authprovider';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+     
 
     console.log(user);
 
@@ -35,26 +36,26 @@ const Header = () => {
                         <li><Link to='/login'>Login</Link></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl text-green-400">Fooduzzi</a>
+                <a className="btn btn-ghost normal-case text-2xl text-green-500 font-bold">Fooduzzi</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
                     <li><Link to='/register'>Register</Link></li>
-                    <li><Link to='/login'>Login</Link></li>
+                    
                 </ul>
             </div>
             <div className="navbar-end">
                 {
 
-                    user &&
+                    user ?
                     <span className='text-black flex gap-2'>
                         <img className='w-10 rounded-full' title={user.displayName} src={user.photoURL} alt="" />
                         <button className='btn btn-success' onClick={handleLogOut}>
                             Sign Out
                         </button>
-                    </span>
+                    </span> : <span><Link className='btn btn-success' to='/login'>Login</Link></span>
                 }
             </div>
         </div>

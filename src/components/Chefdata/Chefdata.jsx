@@ -12,10 +12,7 @@ const Chefdata = (props) => {
                 <h2>Experience: {experience} year's</h2>
                 <h2>Likes: {likes} </h2>
                 <h2>Number of Recipes: {recipes}</h2>
-
-                <div className="card-actions justify-start mt-3">
-                    <Link to={`/${id}`} className="btn btn-sm btn-success">View Recipes</Link>
-                </div>
+                <Link to={`/${id}`} className="btn btn-success">View Recipes</Link>
             </div>
         </div>
 
